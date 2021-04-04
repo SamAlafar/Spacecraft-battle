@@ -110,7 +110,7 @@ function startGame() {
 
 function endGame(score) {
   removeGameScreen();
-  createGameOverScreen(scpre);
+  createGameOverScreen(score);
 }
 
 window.addEventListener("load", createSplashScreen);
