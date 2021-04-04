@@ -1,0 +1,75 @@
+/* -- STYLES RESET -- */
+* {
+  font-family: "Gugi-Regular";
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* -- FONT -- */
+@font-face {
+  font-family: "Gugi-Regular";
+  src: url("../fonts/Gugi/Gugi-Regular.ttf");
+}
+
+/* -- DESIGN -- */
+
+.container {
+  width: 100%;
+  height: 900px;
+  background-image: url("/img/splashscreen.png");
+  background-repeat: no-repeat;
+  background-size: 100% 110%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.container h1 {
+  width: 100%;
+  font-size: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-left: 200px;
+}
+
+.container button {
+  height: 100px;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: rgba(161, 252, 3, 0.6);
+  border-style: none;
+  border-radius: 5px;
+  margin-top: 170px;
+  margin-left: 630px;
+}
+
+.container button span {
+  font-size: 48px;
+  color: black;
+}
+.container h2 {
+
+  margin-left: 22px;
+}
+.container .list {
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+  margin-right: 100px;
+  margin-top: 340px;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.5);
+  height: 180px;
+  width: 320px;
+  border-radius: 5px;
+}
