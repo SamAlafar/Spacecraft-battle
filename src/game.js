@@ -40,10 +40,12 @@ class Game {
 
     const boundHandleKeyDown = handleKeyDown.bind(this);
     document.body.addEventListener("keydown", boundHandleKeyDown);
+
+    this.startLoop();
   }
 
   startLoop() {
-    const loop = function () {
+    const loop = () => {
       if (Math.random() > 0.95) {
         const randomX = Math.floor(this.canvas.width * Math.random());
         const newMeteorite = new Meteorite(this.canvas, randomX, 5);
@@ -51,11 +53,52 @@ class Game {
       }
 
       this.checkCollisions();
+
+      this.spacecraft.updatePosition();
+      this.spacecraft.handleScreenCollision();
+
+      this.meteorites = this.meteorites.filter((meteorite) => {
+        meteorite.updatePosition();
+        return meteorite.isInsideScreen();
+      });
+
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      this.spacecraft.draw();
+      this.meteorites.forEach((meteorite) => {
+        meteorite.draw();
+      });
+
+      if (!this.gameIsOver) {
+        window.requestAnimationFrame(loop);
+      }
+
+      this.updateGameStats();
     };
+    window.requestAnimationFrame(loop);
   }
 
   checkCollisions() {
-    
-    this.spacecraft.didCollide(meteorite);
+    this.meteorites.forEach((meteorite) => {
+      if (this.spacecraft.didCollide(meteorite)) {
+        this.spacecraft.removeLife();
+
+        enemy.y = 0 - enemy.size;
+
+        if (this.spacecraft.lives === 0) {
+          this.gameOver();
+        }
+      }
+    });
+  }
+  gameOver() {
+    this.gameIsOver = true;
+    endGame(this.score);
+  }
+
+  updateGameStats() {
+    this.score += 10;
+    this.livesElement.innerHTML = this.spacecraft.lives;
+    this.scoreElement.innerHTML = this.score;
   }
 }

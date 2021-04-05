@@ -87,7 +87,7 @@ function createGameOverScreen(score) {
     <main>
         <h1>GAME OVER</h1>
         <p>Miles: <span>${score}</span></p>
-        <button>START AGAIN</button>
+        <button>TRY AGAIN!</button>
     </main>
     `);
 

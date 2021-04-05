@@ -3,7 +3,7 @@ class Meteorite {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
 
-    this.size = 200;
+    this.size = 20;
     this.y = this.canvas.height;
     this.x = positionX;
 
@@ -11,7 +11,7 @@ class Meteorite {
   }
 
   draw() {
-    this.fillStyle = "#FF6F27";
+    this.ctx.fillStyle = "#FF6F27";
 
     this.ctx.fillRect(this.x, this.y, this.size, this.size);
   }

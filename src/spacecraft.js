@@ -5,13 +5,14 @@ class Spacecraft {
 
     this.lives = lives;
 
-    this.size = 100;
+    this.width = 80;
+    this.height = 130;
 
-    this.x = 50;
-    this.y = this.canvas.width / 2 - this.size / 2;
+    this.x = 350;
+    this.y = 450;
 
     this.direction = 0;
-    this.speed = 5; //This multiplies 5px * 60fps which will equal to 300px
+    this.speed = 2; //This multiplies 5px * 60fps which will equal to 300px
   }
 
   setDirection(direction) {
@@ -23,31 +24,33 @@ class Spacecraft {
     this.x += this.direction * this.speed;
   }
 
-  handleScreenCollision() {
+  handleScreenCollision = () => {
     const screenLeft = 0;
     const screenRight = this.canvas.width;
 
     const spacecraftLeft = this.x;
-    const spacecraftRight = this.x + this.size;
+    const spacecraftRight = this.x + this.width;
 
-    if (spacecraftRight >= screenRight) this.direction("left");
-    else if (spacecraftLeft <= screenLeft) this.direction("right");
-  }
+    if (spacecraftRight >= screenRight) this.setDirection("left");
+    else if (spacecraftLeft <= screenLeft) this.setDirection("right");
+  };
 
   removeLife() {
     this.lives -= 1;
   }
 
   draw() {
-    this.ctx.fillStyle = "#66D3FA";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    let img = document.createElement("img");
+    img.src = "img/SPACECRAFT-removebg-preview (1).png";
+    this.ctx.img = "img";
+    this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
   }
 
   didCollide(meteorite) {
     const spacecraftLeft = this.x;
-    const spacecraftRight = this.x + this.size;
+    const spacecraftRight = this.x + this.width;
     const spacecraftTop = this.y;
-    const spacecraftBottom = this.y + this.size;
+    const spacecraftBottom = this.y + this.height;
 
     const meteoriteLeft = meteorite.x;
     const meteoriteRight = meteorite.x + meteorite.size;

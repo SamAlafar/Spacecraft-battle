@@ -116,5 +116,5 @@
 .canvas-container {
   width: 800px;
   height: 600px;
-  border: 1px solid rgba(161, 252, 3);
+  border: 2px solid rgba(161, 252, 3, 0.4);
 }
