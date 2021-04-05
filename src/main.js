@@ -15,21 +15,25 @@ function buildDom(htmlString) {
 /* -- CREATE SPLASH SCREEN -- */
 function createSplashScreen() {
   splashScreen = buildDom(`
-    <main class="container">
-        <div>
-            <h1 class="title">SPACECRAFT BATTLE</h1>
-            <button><span>START</span></button>
-        </div>
+  <main class="container">
+      <div class="title">
+        <h1 class="title">SPACECRAFT BATTLE</h1>
+        <button><span>START</span></button>
+      </div>
 
-        <div class="list box">
-            <h2>How to play:</h2>
-            <ol>
-                <li>Press Start Button</li>
-                <li>Start flying with the arrow keys</li>
-                <li>Avoid the meteorites</li>
-                <li>Hit the highest score</li>
-            </ol>
+      <div class="list box">
+        <div class="how-to-title">
+          <h2>How to play:</h2>
         </div>
+        <div class="how-to-list">
+          <ol>
+            <li>Press Start Button</li>
+            <li>Start flying with the arrow keys</li>
+            <li>Avoid the meteorites</li>
+            <li>Hit the highest score</li>
+          </ol>
+        </div>
+      </div>
     </main>
     `);
 
@@ -47,22 +51,24 @@ function removeSplashScreen() {
 /* -- CREATE GAME SCREEN -- */
 function createGameScreen() {
   gameScreen = buildDom(`
-    <main class="game-container">
-        <header>
-            <div class="lives">
-                <span class="label">Lives:</span>
-                <span class="value"></span>
-            </div>
+  <main class="game container-1">
+      <header class="game-header">
+        <div class="lives">
+          <span class="label">Lives:</span>
+          <span class="value"></span>
+        </div>
 
-            <div class="score">
-                <span class="label">Miles:</span>
-                <span class="value"></span>
-            </div>
+        <div class="score">
+          <span class="label">Miles:</span>
+          <span class="value"></span>
+        </div>
+      </header>
 
-            <div class="canvas-container">
-                <canvas></canvas>
-            </div>
-        </header>
+      <div>
+        <div class="canvas-container">
+          <canvas></canvas>
+        </div>
+      </div>
     </main>
     `);
 
