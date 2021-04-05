@@ -66,7 +66,9 @@ function createGameScreen() {
 
       <div>
         <div class="canvas-container">
-          <canvas></canvas>
+          <canvas>
+            <img src="img/SPACECRAFT-removebg-preview (1).png" width="100" height="100">
+          </canvas>
         </div>
       </div>
     </main>
