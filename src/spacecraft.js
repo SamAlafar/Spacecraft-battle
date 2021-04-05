@@ -8,13 +8,13 @@ class Spacecraft {
     this.size = 100;
 
     this.x = 50;
-    this.y = 60;
+    this.y = this.canvas.width / 2 - this.size / 2;
 
     this.direction = 0;
-    this.speed = 5;
+    this.speed = 5; //This multiplies 5px * 60fps which will equal to 300px
   }
 
-  setDirections(direction) {
+  setDirection(direction) {
     if (direction === "left") this.direction = -1;
     else if (direction === "right") this.direction = 1;
   }
@@ -24,8 +24,14 @@ class Spacecraft {
   }
 
   handleScreenCollision() {
-    const screenTop = 0;
-    const screenBottom = this.canvas.height;
+    const screenLeft = 0;
+    const screenRight = this.canvas.width;
+
+    const spacecraftLeft = this.x;
+    const spacecraftRight = this.x + this.size;
+
+    if (spacecraftRight >= screenRight) this.direction("left");
+    else if (spacecraftLeft <= screenLeft) this.direction("right");
   }
 
   removeLife() {
@@ -33,7 +39,34 @@ class Spacecraft {
   }
 
   draw() {
-    const spacecraftImg = document.createElement("img");
-    spacecraftImg.src = "img/SPACECRAFT-removebg-preview (1).png";
+    this.ctx.fillStyle = "#66D3FA";
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  }
+
+  didCollide(meteorite) {
+    const spacecraftLeft = this.x;
+    const spacecraftRight = this.x + this.size;
+    const spacecraftTop = this.y;
+    const spacecraftBottom = this.y + this.size;
+
+    const meteoriteLeft = meteorite.x;
+    const meteoriteRight = meteorite.x + meteorite.size;
+    const meteoriteTop = meteorite.y;
+    const meteoriteBottom = meteorite.y + meteorite.size;
+
+    const crossLeft =
+      meteoriteLeft <= spacecraftRight && meteoriteLeft >= spacecraftLeft;
+    const crossRight =
+      meteoriteRight >= spacecraftLeft && meteoriteRight <= spacecraftRight;
+    const crossBottom =
+      meteoriteBottom >= spacecraftTop && meteoriteBottom <= spacecraftBottom;
+    const crossTop =
+      meteoriteTop <= spacecraftBottom && meteoriteTop >= spacecraftTop;
+
+    if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

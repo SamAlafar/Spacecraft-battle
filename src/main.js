@@ -51,27 +51,25 @@ function removeSplashScreen() {
 /* -- CREATE GAME SCREEN -- */
 function createGameScreen() {
   gameScreen = buildDom(`
-  <main class="game container-1">
-      <header class="game-header">
-        <div class="lives">
-          <span class="label">Lives:</span>
-          <span class="value"></span>
-        </div>
-
-        <div class="score">
-          <span class="label">Miles:</span>
-          <span class="value"></span>
-        </div>
-      </header>
-
-      <div>
-        <div class="canvas-container">
-          <canvas>
-            <img src="img/SPACECRAFT-removebg-preview (1).png" width="100" height="100">
-          </canvas>
-        </div>
+  <main id= "game" class="container-1">
+    <header class="game-header">
+      <div class="lives">
+        <span class="label">Lives:</span>
+        <span class="value"></span>
       </div>
-    </main>
+
+      <div class="score">
+        <span class="label">Miles:</span>
+        <span class="value"></span>
+      </div>
+    </header>
+
+    <div>
+      <div class="canvas-container">
+        <canvas></canvas>
+      </div>
+    </div>
+  </main>
     `);
 
   document.body.appendChild(gameScreen);

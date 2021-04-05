@@ -79,20 +79,20 @@
 }
 
 /* -- GAME SCREEN DESIGN -- */
-.game {
+#game {
   width: 100%;
   height: 100%;
   background-image: url("../img/gameScreenbackground.png");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  background-size: cover;
 }
 
 .container-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 800px;
   position: fixed;
 }
 
@@ -101,8 +101,6 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  text-align: center;
-  margin-top: 80px;
 }
 
 .lives {
@@ -116,8 +114,7 @@
 }
 
 .canvas-container {
-  border: 1px solid rgba(161, 252, 3);
-  margin-left: 420px;
-  width: 570px;
+  width: 800px;
   height: 600px;
+  border: 1px solid rgba(161, 252, 3);
 }
