@@ -46,10 +46,12 @@ class Game {
 
   startLoop() {
     const loop = () => {
-      if (Math.random() > 0.95) {
-        const randomX = Math.floor(this.canvas.width * Math.random());
-        const newMeteorite = new Meteorite(this.canvas, randomX, 5);
-        this.meteorites.push(newMeteorite);
+      if (this.meteorites.length < 8) {
+        if (Math.random() > 0.95) {
+          const randomX = Math.floor(this.canvas.width * Math.random());
+          const newMeteorite = new Meteorite(this.canvas, randomX, 2);
+          this.meteorites.push(newMeteorite);
+        }
       }
 
       this.checkCollisions();
@@ -75,7 +77,7 @@ class Game {
 
       this.updateGameStats();
     };
-    window.requestAnimationFrame(loop);
+    loop();
   }
 
   checkCollisions() {
@@ -83,7 +85,7 @@ class Game {
       if (this.spacecraft.didCollide(meteorite)) {
         this.spacecraft.removeLife();
 
-        enemy.y = 0 - enemy.size;
+        meteorite.y = 0 - meteorite.size;
 
         if (this.spacecraft.lives === 0) {
           this.gameOver();
@@ -97,7 +99,7 @@ class Game {
   }
 
   updateGameStats() {
-    this.score += 10;
+    this.score += 1;
     this.livesElement.innerHTML = this.spacecraft.lives;
     this.scoreElement.innerHTML = this.score;
   }
