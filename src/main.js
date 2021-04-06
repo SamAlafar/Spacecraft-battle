@@ -3,6 +3,7 @@ let game;
 let splashScreen;
 let gameScreen;
 let gameOverScreen;
+let gameMusic;
 
 /* -- CREATE DOM ELEMENTS IN FROM STRING IN buildDom -- */
 
