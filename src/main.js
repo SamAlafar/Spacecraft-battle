@@ -54,12 +54,12 @@ function createGameScreen() {
   <main id= "game" class="container-1">
     <header class="game-header">
       <div class="lives">
-        <span class="label">Lives:</span>
+        <span class="label">Lives: </span>
         <span class="value"></span>
       </div>
 
       <div class="score">
-        <span class="label">Miles:</span>
+        <span class="label">Miles: </span>
         <span class="value"></span>
       </div>
     </header>
@@ -84,7 +84,7 @@ function removeGameScreen() {
 /* -- CREATE GAME OVER SCREEN -- */
 function createGameOverScreen(score) {
   gameOverScreen = buildDom(`
-    <main>
+    <main class="game-over">
         <h1>GAME OVER</h1>
         <p>Miles: <span>${score}</span></p>
         <button>TRY AGAIN!</button>
