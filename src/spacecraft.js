@@ -5,8 +5,8 @@ class Spacecraft {
 
     this.lives = lives;
 
-    this.width = 80;
-    this.height = 130;
+    this.width = 50;
+    this.height = 100;
 
     this.x = 350;
     this.y = 450;
