@@ -1,6 +1,6 @@
 /* -- CREATE CLASS GAME -- */
 class Game {
-  constructor(gameScreen) {
+  constructor(gameScreen, gameMusic) {
     this.canvas = null;
     this.ctx = null;
     this.meteorites = [];
@@ -10,6 +10,7 @@ class Game {
     this.score = 0;
     this.livesElement = undefined;
     this.scoreElement = undefined;
+    this.gameMusic = gameMusic;
   }
   start() {
     this.livesElement = this.gameScreen.querySelector(".lives .value");
@@ -46,11 +47,12 @@ class Game {
 
   startLoop() {
     const loop = () => {
-      if (this.meteorites.length < 8) {
-        if (Math.random() > 0.95) {
+      if (this.meteorites.length < 15) {
+        if (Math.random() > 0.97) {
           const randomX = Math.floor(this.canvas.width * Math.random());
           const newMeteorite = new Meteorite(this.canvas, randomX, 2);
           this.meteorites.push(newMeteorite);
+          console.log(this.meteorites);
         }
       }
 
