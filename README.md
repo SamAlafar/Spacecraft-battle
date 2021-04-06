@@ -30,8 +30,8 @@ Spacecraft-battle is an immersive game where the player, in our case the pilot, 
     <title>Spacecraft Battle</title>
 </head>
 <body>
-    <script src="./src/alien.js"></script>
-    <script src="./src/pilot.js"></script>
+    <script src="./src/meteorite.js"></script>
+    <script src="./src/spacecraft.js"></script>
     <script src="./src/game.js"></script>
     <script src="./src/main.js"></script>
 </body>
@@ -75,8 +75,8 @@ endGame () {
 class Game {
   this.canvas;
 	this.ctx;
-	this.aliens;
-	this.pilot;
+	this.meteorites;
+	this.spacecraft;
 	this.gameIsOver;
 	this.gameScreen;
 	this.score;
