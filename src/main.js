@@ -1,9 +1,13 @@
-/* -- DECLARING VARIABLES TO WORK WITHH -- */
+/* -- DECLARING VARIABLES TO WORK WITH -- */
 let game;
 let splashScreen;
 let gameScreen;
 let gameOverScreen;
-let gameMusic;
+
+/* -- AUDIO -- */
+
+const gameSound = document.querySelector('#game-sound');
+const gameOverSound = document.querySelector('#game-over-sound');
 
 /* -- CREATE DOM ELEMENTS IN FROM STRING IN buildDom -- */
 
@@ -74,12 +78,17 @@ function createGameScreen() {
     `);
 
   document.body.appendChild(gameScreen);
+  gameSound.loop = true;
+  gameSound.volume = 1;
+  gameSound.currentTime = 0;
+  gameSound.play();
   return gameScreen;
 }
 
 /* -- REMOVE GAME SCREEN -- */
 function removeGameScreen() {
   gameScreen.remove();
+  gameSound.pause();
 }
 
 /* -- CREATE GAME OVER SCREEN -- */
@@ -96,6 +105,10 @@ function createGameOverScreen(score) {
   button.addEventListener("click", startGame);
 
   document.body.appendChild(gameOverScreen);
+  gameOverSound.loop = false;
+  gameOverSound.volume = 1;
+  gameOverSound.currentTime = 0;
+  gameOverSound.play();
 }
 
 /* -- REMOVE GAME OVER SCREEN -- */
