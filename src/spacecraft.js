@@ -12,8 +12,33 @@ class Spacecraft {
     this.y = 450;
 
     this.direction = 0;
-    this.speed = 2; //This multiplies 5px * 60fps which will equal to 300px
+    /*this.keys = [];
+    this.move = false;*/
+
+    this.speed = 1.5; //This multiplies 5px * 60fps which will equal to 300px
   }
+
+  //shooting
+
+  /*shoot() {
+    if (this.direction >= 1) {
+      let newBullet = new Bullet(
+        this.canvas,
+        this.y,
+        this.attack,
+        this.direction
+      );
+      game.bullets.push(newBullet);
+    } else if (this.direction <= 1) {
+      let newBullet = new Bullet(
+        this.canvas,
+        this.y,
+        this.attack,
+        this.direction
+      );
+      game.bullets.push(newBullet);
+    }
+  }*/
 
   setDirection(direction) {
     if (direction === "left") this.direction = -1;
@@ -30,6 +55,9 @@ class Spacecraft {
 
     const spacecraftLeft = this.x;
     const spacecraftRight = this.x + this.width;
+
+    /*if (spacecraftRight >= screenRight) this.keyMove("left");
+    else if (spacecraftLeft <= screenLeft) this.keyMove("right");*/
 
     if (spacecraftRight >= screenRight) this.setDirection("left");
     else if (spacecraftLeft <= screenLeft) this.setDirection("right");
@@ -61,12 +89,12 @@ class Spacecraft {
       meteoriteLeft <= spacecraftRight && meteoriteLeft >= spacecraftLeft;
     const crossRight =
       meteoriteRight >= spacecraftLeft && meteoriteRight <= spacecraftRight;
-    const crossBottom =
-      meteoriteBottom >= spacecraftTop && meteoriteBottom <= spacecraftBottom;
+    //const crossBottom =
+      //meteoriteBottom >= spacecraftTop && meteoriteBottom <= spacecraftBottom;
     const crossTop =
       meteoriteTop <= spacecraftBottom && meteoriteTop >= spacecraftTop;
 
-    if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
+    if ((crossLeft || crossRight) && (crossTop)) {
       return true;
     } else {
       return false;
