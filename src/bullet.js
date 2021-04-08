@@ -8,11 +8,12 @@ class Bullet {
     this.height = 15;
     this.speed = 5;
   }
-
+  //set direction of bullet to draw upwards when input
   setDirection(direction) {
     if (direction === "up") this.direction = -1;
   }
 
+  //draw the bullet on canvas
   draw() {
     let img = document.createElement("img");
     img.src = "img/laser-bullet-img.png";
@@ -20,10 +21,12 @@ class Bullet {
     this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
   }
 
+  //update the position of the bullet to go constantly upwards
   updatePosition() {
     this.y -= this.speed;
   }
 
+  //checks if the bullet is inside the screen
   isInsideScreen() {
     const bulletTop = this.y;
     const screenTop = 0;
@@ -31,6 +34,7 @@ class Bullet {
     return isInside;
   }
 
+  //collision logic of bullet with meteorite
   didCollide(meteorite) {
     const bulletLeft = this.x;
     const bulletRight = this.x + this.width;
