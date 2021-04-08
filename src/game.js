@@ -31,7 +31,7 @@ class Game {
     //select the spacecraft, and draw it on canvas, with the ammount of lives given as a parameter
     this.spacecraft = new Spacecraft(this.canvas, 10);
 
-    //inputs for controling the spacecraft and the bullet which is dinamilcally attached to the spacecraft
+    //inputs for controlling the spacecraft and the bullet which is dinamilcally attached to the spacecraft
     function handleKeyDown(event) {
       if (event.key === "ArrowLeft") this.spacecraft.setDirection("left");
       else if (event.key === "ArrowRight")
@@ -39,6 +39,11 @@ class Game {
       else if (event.key === "ArrowUp") {
         const newBullet = new Bullet(this.canvas, this.spacecraft.x + 18.7, 1);
         this.bullets.push(newBullet);
+        bulletSound.loop = false;
+        bulletSound.volume = 0.04;
+        bulletSound.pause();
+        bulletSound.currentTime = 0;
+        bulletSound.play();
       }
     }
 
@@ -129,7 +134,7 @@ class Game {
       this.bullets.forEach((bullet) => {
         if (bullet.didCollide(meteorite)) {
           meteorite.y = 0 - meteorite.size;
-          bullet.y = 0 - bullet.y;
+          bullet.y = this.y - bullet.y;
         }
       });
     });
