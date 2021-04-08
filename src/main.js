@@ -8,6 +8,7 @@ let gameOverScreen;
 
 const gameSound = document.querySelector("#game-sound");
 const gameOverSound = document.querySelector("#game-over-sound");
+const bulletSound = document.querySelector("bullet-sound");
 
 /* -- CREATE DOM ELEMENTS IN FROM STRING IN buildDom -- */
 
@@ -31,12 +32,14 @@ function createSplashScreen() {
           <h2>How to play:</h2>
         </div>
         <div class="how-to-list">
-          <ol>
-            <li>Press Start Button</li>
-            <li>Start flying with the arrow keys</li>
-            <li>Avoid the meteorites</li>
-            <li>Hit the highest score</li>
-          </ol>
+        <ul>
+          <li class="start">Press <span>START</span> button</li>
+          <li class="left-right">
+            Fly with <span>LEFT</span> and <span>RIGHT</span> arrowkeys
+          </li>
+          <li class="shoot">Shoot them with <span>UP</span> arrowkey</li>
+          <li>Hit the highest score</li>
+        </ul>
         </div>
       </div>
     </main>
@@ -77,6 +80,7 @@ function createGameScreen() {
 
   document.body.appendChild(gameScreen);
 
+  //start music for gameScreen
   gameSound.loop = true;
   gameSound.volume = 0.5;
   gameSound.currentTime = 0;
@@ -104,6 +108,7 @@ function createGameOverScreen(score) {
   const button = gameOverScreen.querySelector("button");
   button.addEventListener("click", startGame);
 
+  //start music for gameOverScreen
   document.body.appendChild(gameOverScreen);
   gameOverSound.loop = false;
   gameOverSound.volume = 0.5;
