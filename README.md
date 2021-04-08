@@ -1,3 +1,5 @@
+
+
 **SPACECRAFT-BATTLE**
 
 **Description**
@@ -64,24 +66,16 @@ All CSS styles applies to the game
 **main.js**
 
 ```javascript
-buildDom () {
-}
-createSplashScreen () {
-}
-removeSplashScreen () {
-}
-createGameScreen () {
-}
-removeGameScreen () {
-}
-createGameOverScreen () {
-}
-removeGameOverScreen () {
-}
-startGame () {
-}
-endGame () { 
-}
+
+buildDom () {}
+createSplashScreen () {}
+removeSplashScreen () {}
+createGameScreen () {}
+removeGameScreen () {}
+createGameOverScreen () {}
+removeGameOverScreen () {}
+startGame () {}
+endGame () {}
 ```
 
 **game.js**
@@ -94,6 +88,7 @@ class Game {
 	this.spacecraft;
 	this.gameIsOver;
 	this.gameScreen;
+	this.bullets;
 	this.score;
 	this.livesElement;
 	this.scoreElement;
@@ -102,16 +97,18 @@ class Game {
 function start() {
   function handleKeyDown () {
   }
-  function startLoop () {
-  }
-  this.checkCollisions();
+  this.startLoop();
 }
 
 function startLoop() {
-  checkCollisions ();
+  const loop = () => {};
+  this.checkCollisions ();
+  this.checkBulletCollisions();
   updatePosition();
   clearRect();
-  draw();
+  this.spacecraft.draw();
+  this.meteorites.draw((meteorite) => {meteorite.draw});
+  this.bullets.forEach((bullet) => {bullet.draw})
   gameOver();
   handleScreenCollision();
   updateGameStats();
@@ -123,20 +120,13 @@ function startLoop() {
 
 ```javascript
 class Spacecraft {
-	constructor() {
-	}
-	setDirection() {
-	} 
-	updatePosition() {
-	}
-	handleScreenCollision() {
-	}
-	removeLife() {
-	}
-	draw() {
-	}
-	didCollide() {
-	}
+	constructor() {}
+	setDirection() {} 
+	updatePosition() {}
+	handleScreenCollision() {}
+	removeLife() {}
+	draw() {}
+	didCollide() {}
 }
 ```
 
@@ -144,16 +134,31 @@ class Spacecraft {
 
 ```javascript
 class Meteorites {
-	constructor () {
-	}
-	draw() {
-	}
-	updatePosition() {
-	}
-	isInsideScreen() {
-	}
+	constructor () {}
+	draw() {}
+	updatePosition() {}
+	isInsideScreen() {}
 }
 ```
+
+**bullet.js**
+
+```javascript
+class Bullet {
+  constructor(){};
+  setDirection(){};
+  draw(){};
+  updatePosition(){};
+  isInsideScreen(){};
+  didCollide(){}; 
+}
+```
+
+
+
+
+
+
 
 
 
