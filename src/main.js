@@ -8,7 +8,8 @@ let gameOverScreen;
 
 const gameSound = document.querySelector("#game-sound");
 const gameOverSound = document.querySelector("#game-over-sound");
-const bulletSound = document.querySelector("bullet-sound");
+const bulletSound = document.querySelector("#bullet-sound");
+const explosionSoun = document.querySelector("#explosion-sound");
 
 /* -- CREATE DOM ELEMENTS IN FROM STRING IN buildDom -- */
 
@@ -82,7 +83,7 @@ function createGameScreen() {
 
   //start music for gameScreen
   gameSound.loop = true;
-  gameSound.volume = 0.5;
+  gameSound.volume = 0.3;
   gameSound.currentTime = 0;
   gameSound.play();
 
