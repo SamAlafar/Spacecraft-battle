@@ -15,7 +15,7 @@ class Meteorite {
   // draw the meteorite in the canvas with the selected image
   draw() {
     let img = document.createElement("img");
-    img.src = "img/METEORITE_IMG-removebg-preview.png";
+    img.src = "img/meteorite.png";
     this.ctx.img = "img";
     this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
   }
