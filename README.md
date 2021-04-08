@@ -2,13 +2,13 @@
 
 **Description**
 
-Spacecraft-battle is an immersive game where the player, in our case the pilot, will control and fly the spacecraft using the arrows to control it. The main aim is to avoid hitting the meteorites that will appear in the space. The game will be over when the fuel (lives) of our spacecraft is burnt out. 
+Spacecraft-battle is an immersive game where the player, will control the spacecraft using the arrow keys to control it. The main aim is to avoid hitting the meteorites that will appear in the space, additionaly you can shoot the meteorites to clear your path. The game will be over when spacecraft has run out of lifes.
 
 
 
 **MVP (DOM - CANVAS)**
 
-*CANVAS*, in this game the player will be able to control the vehicle and move around. 
+*CANVAS*, The MVP is a game where the player moves the spacecraft and avoids the collisions with the meteorites.
 
 
 
@@ -30,6 +30,21 @@ Spacecraft-battle is an immersive game where the player, in our case the pilot, 
     <title>Spacecraft Battle</title>
 </head>
 <body>
+      <audio
+      id="game-sound"
+      style="display: none"
+      src="audio/mactonite_-_Warp_Drive_1.mp3"
+    ></audio>
+    <audio
+      id="game-over-sound"
+      style="display: none"
+      src="audio/game-over.wav"
+    ></audio>
+    <audio
+      id="bullet-sound"
+      style="display: none"
+      src="audio/laser-gun-19sf.mp3"
+    ></audio>
     <script src="./src/meteorite.js"></script>
     <script src="./src/spacecraft.js"></script>
     <script src="./src/game.js"></script>
@@ -41,7 +56,7 @@ Spacecraft-battle is an immersive game where the player, in our case the pilot, 
 **styles.css**
 
 ```css
-Apply CSS styles
+All CSS styles applies to the game
 ```
 
 
