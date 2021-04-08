@@ -6,8 +6,8 @@ let gameOverScreen;
 
 /* -- AUDIO -- */
 
-const gameSound = document.querySelector('#game-sound');
-const gameOverSound = document.querySelector('#game-over-sound');
+const gameSound = document.querySelector("#game-sound");
+const gameOverSound = document.querySelector("#game-over-sound");
 
 /* -- CREATE DOM ELEMENTS IN FROM STRING IN buildDom -- */
 
@@ -69,19 +69,19 @@ function createGameScreen() {
       </div>
     </header>
 
-    <div>
       <div class="canvas-container">
         <canvas></canvas>
       </div>
-    </div>
   </main>
     `);
 
   document.body.appendChild(gameScreen);
+
   gameSound.loop = true;
-  gameSound.volume = 1;
+  gameSound.volume = 0.5;
   gameSound.currentTime = 0;
   gameSound.play();
+
   return gameScreen;
 }
 
@@ -106,7 +106,7 @@ function createGameOverScreen(score) {
 
   document.body.appendChild(gameOverScreen);
   gameOverSound.loop = false;
-  gameOverSound.volume = 1;
+  gameOverSound.volume = 0.5;
   gameOverSound.currentTime = 0;
   gameOverSound.play();
 }

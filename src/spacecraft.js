@@ -90,11 +90,11 @@ class Spacecraft {
     const crossRight =
       meteoriteRight >= spacecraftLeft && meteoriteRight <= spacecraftRight;
     //const crossBottom =
-      //meteoriteBottom >= spacecraftTop && meteoriteBottom <= spacecraftBottom;
+    //meteoriteBottom >= spacecraftTop && meteoriteBottom <= spacecraftBottom;
     const crossTop =
       meteoriteTop <= spacecraftBottom && meteoriteTop >= spacecraftTop;
 
-    if ((crossLeft || crossRight) && (crossTop)) {
+    if ((crossLeft || crossRight) && crossTop) {
       return true;
     } else {
       return false;

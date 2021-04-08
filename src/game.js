@@ -13,20 +13,25 @@ class Game {
     this.scoreElement = undefined;
   }
   start() {
+    //select the lives and score elements
     this.livesElement = this.gameScreen.querySelector(".lives .value");
     this.scoreElement = this.gameScreen.querySelector(".score .value");
 
+    //select the canvas and get its 2d context
     this.canvas = this.gameScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
 
+    //setting the size of the canvas
     this.canvasContainer = this.gameScreen.querySelector(".canvas-container");
     this.containerWidth = this.canvasContainer.clientWidth;
     this.containerHeight = this.canvasContainer.clientHeight;
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
+    //select the spacecraft, and draw it on canvas, with the ammount of lives given as a parameter
     this.spacecraft = new Spacecraft(this.canvas, 10);
 
+    //inputs for controling the spacecraft and the bullet which is dinamilcally attached to the spacecraft
     function handleKeyDown(event) {
       if (event.key === "ArrowLeft") this.spacecraft.setDirection("left");
       else if (event.key === "ArrowRight")
@@ -44,7 +49,7 @@ class Game {
   }
 
   startLoop() {
-    //creates random meteorites on canvas
+    //creates random meteorites on canvas and pushes them to a new array
     const loop = () => {
       if (this.meteorites.length < 10) {
         if (Math.random() > 0.97) {
@@ -53,22 +58,24 @@ class Game {
           this.meteorites.push(newMeteorite);
         }
       }
-      //checks collisions between spacecraft and meteorites
+
+      //calls the function declared on line 106
       this.checkCollisions();
 
-      // check collisions between bullet and meteorites
+      //calls the function declared on line 121
       this.checkBulletCollisions();
 
-      //updates spacecraft position when key is pressed
+      //updates spacecraft position
       this.spacecraft.updatePosition();
       this.spacecraft.handleScreenCollision();
 
-      //filters the array of meteorites and updates its positions
+      //filters the array of meteorites and updates the position for each meteorite
       this.meteorites = this.meteorites.filter((meteorite) => {
         meteorite.updatePosition();
         return meteorite.isInsideScreen();
       });
 
+      // iterates over the array of bullets and updates the position for each bullet
       this.bullets.forEach((bullet) => {
         bullet.updatePosition();
         return bullet.isInsideScreen();
@@ -94,12 +101,14 @@ class Game {
       if (!this.gameIsOver) {
         window.requestAnimationFrame(loop);
       }
-      // this function updates the game statistics
+
+      // this calls the function declared at the end of the class Game
       this.updateGameStats();
     };
     loop();
   }
 
+  //checks the collisions between meteorites and spacecraft
   checkCollisions() {
     this.meteorites.forEach((meteorite) => {
       if (this.spacecraft.didCollide(meteorite)) {
@@ -114,23 +123,25 @@ class Game {
     });
   }
 
+  // checks the collision between bullets and meteorites
   checkBulletCollisions() {
     this.meteorites.forEach((meteorite) => {
       this.bullets.forEach((bullet) => {
         if (bullet.didCollide(meteorite)) {
           meteorite.y = 0 - meteorite.size;
+          bullet.y = 0 - bullet.y;
         }
       });
     });
-    //console.log(checkBulletCollisions());
   }
 
+  // if the game is over calls the function gameOver declared in main.js
   gameOver() {
     this.gameIsOver = true;
     endGame(this.score);
   }
 
-  //method that updates the score of the game
+  //method that updates the score and lives of the game
   updateGameStats() {
     this.score += 1;
     this.livesElement.innerHTML = this.spacecraft.lives;

@@ -1,11 +1,11 @@
 class Bullet {
-  constructor(canvas, positionX,) {
+  constructor(canvas, positionX) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.x = positionX;
     this.y = 450;
-    this.width = 15;
-    this.height = 20;
+    this.width = 10;
+    this.height = 15;
     this.speed = 5;
   }
 
@@ -48,8 +48,7 @@ class Bullet {
       meteoriteRight >= bulletLeft && meteoriteRight <= bulletRight;
     const crossBottom =
       meteoriteBottom >= bulletTop && meteoriteBottom <= bulletBottom;
-    const crossTop =
-      meteoriteTop <= bulletBottom && meteoriteTop >= bulletTop;
+    const crossTop = meteoriteTop <= bulletBottom && meteoriteTop >= bulletTop;
 
     if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
       return true;
