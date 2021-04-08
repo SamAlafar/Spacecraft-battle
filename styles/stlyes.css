@@ -1,6 +1,6 @@
 /* -- STYLES RESET -- */
 * {
-  font-family: "Gugi-Regular";
+  font-family: "gugi-regular";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,8 +8,8 @@
 
 /* -- FONT -- */
 @font-face {
-  font-family: "Gugi-Regular";
-  src: url("../fonts/Gugi/Gugi-Regular.ttf");
+  font-family: "gugi-regular";
+  src: url("../fonts/gugi/gugi-gegular.ttf");
 }
 
 /* -- SPLASH SCREEN DESIGN -- */
