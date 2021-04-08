@@ -34,7 +34,7 @@ class Bullet {
     return isInside;
   }
 
-  //collision logic of bullet with meteorite
+  //collision logic between bullet with meteorite
   didCollide(meteorite) {
     const bulletLeft = this.x;
     const bulletRight = this.x + this.width;
