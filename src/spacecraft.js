@@ -55,7 +55,7 @@ class Spacecraft {
   //draw the spacecraft on canvas
   draw() {
     let img = document.createElement("img");
-    img.src = "../img/spacecraft.png";
+    img.src = "img/space2.png";
     this.ctx.img = "img";
     this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
   }
