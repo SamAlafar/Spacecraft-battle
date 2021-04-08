@@ -95,8 +95,7 @@ class Game {
 }
 
 function start() {
-  function handleKeyDown () {
-  }
+  function handleKeyDown () {}
   this.startLoop();
 }
 
