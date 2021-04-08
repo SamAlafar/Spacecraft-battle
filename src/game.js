@@ -40,7 +40,7 @@ class Game {
         const newBullet = new Bullet(this.canvas, this.spacecraft.x + 18.7, 1);
         this.bullets.push(newBullet);
         bulletSound.loop = false;
-        bulletSound.volume = 0.04;
+        bulletSound.volume = 0.1;
         bulletSound.pause();
         bulletSound.currentTime = 0;
         bulletSound.play();
