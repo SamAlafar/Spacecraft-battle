@@ -155,3 +155,7 @@ Link: https://github.com/SamAlafar/Spacecraft-battle
 **Slides**
 
 Link: https://drive.google.com/file/d/1wBpoEfwxnGzBLxztdxO80C2nL_WIUgvU/view?usp=sharing
+
+**Deploy**
+
+Link: https://samalafar.github.io/Spacecraft-battle/
